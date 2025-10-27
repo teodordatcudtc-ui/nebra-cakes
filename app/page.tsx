@@ -9,44 +9,44 @@ export default function Home() {
   return (
     <>
       {/* Hero Section - Compact */}
-      <section className="relative min-h-[60vh] flex items-center bg-gradient-to-br from-white via-primary/5 to-secondary/5 overflow-hidden">
+      <section className="relative min-h-[50vh] md:min-h-[60vh] flex items-center bg-gradient-to-br from-white via-primary/5 to-secondary/5 overflow-hidden">
         {/* Decorativ - linii curbe */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-warm/5 rounded-full blur-3xl"></div>
         </div>
         
-        <div className="container mx-auto px-4 relative z-10 py-8">
-          <div className="grid lg:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
+        <div className="container mx-auto px-4 relative z-10 py-4 md:py-8">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-8 items-center max-w-7xl mx-auto">
             
             {/* Text Content - Left Side */}
-            <div className="hero-reveal space-y-6">
+            <div className="hero-reveal space-y-4 md:space-y-6 text-center md:text-left">
               {/* Heading */}
-              <div className="space-y-3">
-                <h1 className="text-4xl md:text-5xl font-display font-bold text-primary leading-tight tracking-tight">
-                  Torturi <span className="text-accent">artizanale</span><br />care transformă orice moment în sărbătoare
+              <div className="space-y-2 md:space-y-3">
+                <h1 className="text-3xl md:text-5xl font-display font-bold text-primary leading-tight tracking-tight">
+                  Torturi <span className="text-accent">artizanale</span><br className="hidden md:block" />care transformă orice moment în sărbătoare
                 </h1>
-                <div className="w-24 h-1 bg-gradient-to-r from-accent to-warm rounded-full"></div>
+                <div className="w-24 h-1 bg-gradient-to-r from-accent to-warm rounded-full mx-auto md:mx-0"></div>
               </div>
 
               {/* Stats - compact */}
-              <div className="grid grid-cols-3 gap-4 py-4 border-y border-gray-200">
+              <div className="grid grid-cols-3 gap-2 md:gap-4 py-3 md:py-4 border-y border-gray-200 max-w-md mx-auto md:max-w-none md:mx-0">
                 <div>
-                  <div className="text-2xl font-display font-bold text-primary">8+</div>
-                  <div className="text-xs text-gray-600">Ani experiență</div>
+                  <div className="text-xl md:text-2xl font-display font-bold text-primary">8+</div>
+                  <div className="text-xs text-gray-600">Ani</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-display font-bold text-primary">500+</div>
+                  <div className="text-xl md:text-2xl font-display font-bold text-primary">500+</div>
                   <div className="text-xs text-gray-600">Comenzi</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-display font-bold text-primary">100%</div>
+                  <div className="text-xl md:text-2xl font-display font-bold text-primary">100%</div>
                   <div className="text-xs text-gray-600">Natural</div>
                 </div>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                 <a
                   href="tel:0725857222"
                   className="btn-primary inline-flex items-center gap-2 text-sm px-6 py-3 group"
@@ -102,22 +102,22 @@ export default function Home() {
       </section>
 
       {/* Carusel Produse Auto-Scroll Horizontal */}
-      <section className="py-12 bg-white overflow-hidden">
-        <div className="container mx-auto px-4">
+      <section className="py-4 md:py-12 bg-white overflow-hidden">
+        <div className="container mx-auto px-2 md:px-4">
           <div className="relative">
             {/* Carusel container */}
-            <div className="flex gap-6 animate-scroll">
+            <div className="flex gap-3 md:gap-6 animate-scroll-mobile md:animate-scroll">
               {[...featuredProducts, ...featuredProducts].map((product, index) => (
                 <div
                   key={`${product.id}-${index}`}
-                  className="flex-shrink-0 w-80"
+                  className="flex-shrink-0 w-64 md:w-80"
                 >
                   <Link href={`/produse/${product.slug}`} className="group block">
-                    <div className="bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
+                    <div className="bg-white rounded-2xl md:rounded-3xl shadow-md md:shadow-lg hover:shadow-xl md:hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100">
                       {/* Image */}
-                      <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
+                      <div className="relative h-32 md:h-48 bg-gradient-to-br from-gray-50 to-gray-100 overflow-hidden">
                         <div className="w-full h-full flex items-center justify-center">
-                          <div className="w-24 h-24 text-primary/20">
+                          <div className="w-16 md:w-24 h-16 md:h-24 text-primary/20">
                             <svg fill="currentColor" viewBox="0 0 24 24">
                               <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
                               <circle cx="12" cy="12" r="3" opacity="0.5"/>
@@ -127,26 +127,26 @@ export default function Home() {
                             </svg>
                           </div>
                         </div>
-                        <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-primary">
+                        <div className="absolute top-2 right-2 md:top-4 md:right-4 px-2 py-1 md:px-3 md:py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-semibold text-primary">
                           {product.category}
                         </div>
                       </div>
                       
                       {/* Content */}
-                      <div className="p-5">
-                        <h3 className="text-lg font-display font-bold text-primary mb-2 group-hover:text-accent transition-colors line-clamp-1">
+                      <div className="p-3 md:p-5">
+                        <h3 className="text-base md:text-lg font-display font-bold text-primary mb-1 md:mb-2 group-hover:text-accent transition-colors line-clamp-1">
                           {product.name}
                         </h3>
-                        <p className="text-sm text-gray-600 mb-3 line-clamp-2">
+                        <p className="text-xs md:text-sm text-gray-600 mb-2 md:mb-3 line-clamp-2">
                           {product.description}
                         </p>
-                        <div className="flex items-center justify-between pt-3 border-t border-gray-100">
+                        <div className="flex items-center justify-between pt-2 md:pt-3 border-t border-gray-100">
                           <div>
                             <span className="text-xs text-gray-500">de la</span>
-                            <div className="text-xl font-bold text-primary">{product.price} RON</div>
+                            <div className="text-lg md:text-xl font-bold text-primary">{product.price} RON</div>
                           </div>
-                          <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent group-hover:translate-x-1 transition-all duration-300">
-                            <svg className="w-4 h-4 text-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <div className="w-7 h-7 md:w-8 md:h-8 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent group-hover:translate-x-1 transition-all duration-300">
+                            <svg className="w-3 h-3 md:w-4 md:h-4 text-accent group-hover:text-white transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>
                           </div>
