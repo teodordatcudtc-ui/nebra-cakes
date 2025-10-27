@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nebra-cakes.ro/sitemap.xml
+
+# Crawl-delay (opțional)
+# User-agent: *
+# Crawl-delay: 10
+

@@ -1,0 +1,157 @@
+/* Globals.css - Stiluri globale și importuri */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reset și optimizări de bază */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-gray-900 antialiased;
+    font-feature-settings: 'kern' 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+/* Buton CTA principal */
+@layer components {
+  .btn-primary {
+    @apply bg-accent text-primary px-8 py-4 rounded-lg font-semibold 
+           transition-all duration-300 hover:scale-105 hover:shadow-lg
+           focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2;
+  }
+
+  /* Card produs cu animație hover */
+  .product-card {
+    @apply bg-white rounded-2xl shadow-md overflow-hidden
+           transition-all duration-300 hover:shadow-xl
+           hover:-translate-y-1.5 hover:scale-[1.02]
+           border-2 border-transparent;
+  }
+
+  .product-card:hover {
+    border-color: #ffcb3c;
+  }
+
+  /* Input pentru formulare */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-lg border-2 border-gray-200
+           focus:outline-none focus:border-secondary focus:ring-2 focus:ring-secondary/20
+           transition-all duration-200;
+  }
+
+  /* Reveal on scroll - clasă pentru animații */
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animații custom */
+@layer utilities {
+  .hero-reveal {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  /* Carusel auto-scroll horizontal */
+  .animate-scroll {
+    display: flex;
+    animation: scroll 60s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Pause on hover */
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  /* Carusel auto-scroll vertical */
+  .animate-scroll-vertical {
+    display: flex;
+    flex-direction: column;
+    animation: scrollVertical 40s linear infinite;
+  }
+
+  @keyframes scrollVertical {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
+  }
+
+  /* Pause on hover - vertical */
+  .animate-scroll-vertical:hover {
+    animation-play-state: paused;
+  }
+
+  /* Separator SVG curbat - folosește clasa .separator */
+  .separator-gradient {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 2s ease-in-out forwards;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    @apply px-4;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
